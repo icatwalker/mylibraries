@@ -6,68 +6,115 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/animate.css"/>
     <style>
-        body{
-
+        body,ul,li{
+            margin:0;
+            padding:0;
         }
         ul,li{
         list-style: none;
         }
         ul{
-            border:1px solid black;
+
         }
         #totle>li{
             float: left;
             width: 200px;
-            margin-left:40px;
-            border:1px solid green;
+            margin-left:2px;
+
         }
         .clearFloat :after{
             content: "";
             display: block;
             clear: both;
         }
-
-
-
+        .child{
+            display: none;
+            background: indianred;
+        }
+        #totle>li>div{
+            height:30px;
+            background: #e4393c;
+            text-align: center;
+            line-height: 30px;
+            color:#00ffff ;
+            font-size : 20px;
+        }
+        #totle>li{
+            position: relative;
+        }
+        #totle>li>ul{
+            position: absolute;
+            top:30px;
+            left:0;
+        }
+        .show{
+            display: block;
+        }
+        #totle>li >ul>li{
+            width:200px;
+        }
     </style>
 </head>
 <body>
-<ul id="totle">
-    <li>
-        <div class="fasel" id="d1">
-            点我1
+<div class="clearFloat">
+    <ul id="totle"  >
+        <li>
+            <div class="fasel" id="d1">
+                点我1
+            </div>
             <ul class="child">
-                <li></li>
+                <li>1111</li>
+                <li>1111</li>
+                <li>1111</li>
+                <li>1111</li>
             </ul>
-        </div>
-    </li>
-    <li>
-        <div class="fasel" id="d2">
-            点我2
+        </li>
+        <li>
+            <div class="fasel" id="d2">
+                点我2
+            </div>
             <ul class="child">
-                <li></li>
+                <li>11122</li>
+                <li>11122</li>
+                <li>11122</li>
+                <li>11122</li>
             </ul>
-        </div>
-    </li>
-    <li>
-        <div class="fasel" id="d3">
-            点我3
+        </li>
+        <li>
+            <div class="fasel" id="d3">
+                点我3
+            </div>
             <ul class="child">
-                <li></li>
+                <li>1123</li>
+                <li>1123</li>
+                <li>1123</li>
+                <li>1123</li>
             </ul>
-        </div>
-    </li>
-    <li>
-        <div class="fasel" id="d4">
-            点我3
+        </li>
+        <li>
+            <div class="fasel" id="d4">
+                点我3
+            </div>
             <ul class="child">
-                <li></li>
+                <li>1134</li>
+                <li>1134</li>
+                <li>1134</li>
+                <li>1134</li>
             </ul>
-        </div>
-    </li>
-</ul>
+        </li>
+
+    </ul>
+</div>
+
 
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/mxjfunction.js"></script>
+<script>
+    $(".fasel").click(function(){
+        $(this).next(".child").toggleClass("animated swing show");
+    });
+</script>
+
+
 </body>
 </html>
