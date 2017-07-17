@@ -9,12 +9,33 @@
         body{
 
         }
+        ul,li{
+        list-style: none;
+        }
+        ul{
+            border:1px solid black;
+        }
+        #totle>li{
+            float: left;
+            width: 200px;
+            margin-left:40px;
+            border:1px solid green;
+        }
+        .clearFloat :after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+
+
     </style>
 </head>
 <body>
-<ul>
+<ul id="totle">
     <li>
         <div class="fasel" id="d1">
+            点我1
             <ul class="child">
                 <li></li>
             </ul>
@@ -22,6 +43,7 @@
     </li>
     <li>
         <div class="fasel" id="d2">
+            点我2
             <ul class="child">
                 <li></li>
             </ul>
@@ -29,6 +51,7 @@
     </li>
     <li>
         <div class="fasel" id="d3">
+            点我3
             <ul class="child">
                 <li></li>
             </ul>
@@ -36,6 +59,7 @@
     </li>
     <li>
         <div class="fasel" id="d4">
+            点我3
             <ul class="child">
                 <li></li>
             </ul>
