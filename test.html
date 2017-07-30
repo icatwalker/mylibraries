@@ -53,6 +53,15 @@
         #totle>li >ul>li{
             width:200px;
         }
+        #canvas{
+            /*width: 200px;*/
+            /*height:200px;*/
+            /*//border: 1px solid #00ffff;*/
+        }
+        #ccc{
+
+            border:1px solid #00ffff;
+        }
     </style>
 </head>
 <body>
@@ -105,14 +114,52 @@
 
     </ul>
 </div>
+<canvas id="canvas" width="200" height="200"></canvas>
 
-
+<div id="dd">
+ddd
+</div>
+<input type="button" value="变色" id="dd_bt"/>
+<div id="ccc"></div>
+<input type="button" id="cc_bt" value="加div"/>
+<br/>
+<br/>
+<span id="d9" onclick="abc()">222</span>
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/mxjfunction.js"></script>
 <script>
+    function abc(){
+        console.log(222);
+    }
     $(".fasel").click(function(){
         $(this).next(".child").toggleClass("animated swing show");
     });
+    var ctx=document.getElementById("canvas").getContext("2d");
+    ctx.translate(0,0);
+    ctx.arc(100,100,100,0,2*Math.PI,false);
+    ctx.stroke();
+
+    for(var i=1;i<=12;i++){
+        var deg=i*Math.PI/6-Math.PI/2;
+        ctx.textAlign="center";
+        ctx.textBaseline="middle";
+        ctx.fillText(i,100+90*Math.cos(deg),100+90*Math.sin(deg));
+    }
+    ctx.stroke();
+var rdcolor=new Mxjfn();
+
+$("#dd").css({"width":"200px","height":"200px","background":"#ccc","transition":"background 1s" });
+$("#dd_bt").click(function(){
+    console.log(11);
+    $("#dd").css({"background":rdcolor.rd_color(20,200)});
+});
+
+$("#cc_bt").click(function(){
+    $(".rd").css({"background":rdcolor.rd_color(20,200)});
+    rdcolor.create_div(3);
+});
+
+
 </script>
 
 

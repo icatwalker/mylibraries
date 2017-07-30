@@ -36,8 +36,32 @@ Mxjfn
         });
         return this;
     })
+    .addFunction("rd_color", function (min_color,max_color,o) {//随即颜色
+        var r=Math.floor(Math.random()*(max_color-min_color)+min_color);
+        var g=Math.floor(Math.random()*(max_color-min_color)+min_color);
+        var b=Math.floor(Math.random()*(max_color-min_color)+min_color);
+        if(arguments.length==2){
+            return "rgba("+r+","+g+","+b+","+1+")";
+        }
+        if(arguments.length==3){
+            return "rgba("+r+","+g+","+b+","+o+")";
+        }
+        return this;
+    })
+    .addFunction("create_div", function (n) {//添加div  class=
+        var crdiv=`<div class="rd" style="width:200px;height:200px ;background: #f00 ;margin-top:10px ;margin-left:10px;display: inline-block"></div>`;
+       var crdivs="";
+        if(arguments.length==0){
+            crdivs=crdiv;
+        }else{
+           for(var i=1;i<=n;i++){
+               crdivs+=crdiv;
+            }
+        }
 
-
+        $("#ccc").append(crdivs);
+        return this;
+    })
 
 
 
