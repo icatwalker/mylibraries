@@ -63,8 +63,31 @@
             border:1px solid #00ffff;
         }
     </style>
+    <style>
+        .box{
+            width:1920px;
+            height:900px;
+            box-sizing:border-box;
+            background: #ddd;
+        }
+        #container{
+            width:80%;
+            height:100%;
+            background: red;
+            margin: 0 auto;
+            position: relative;
+        }
+        #rd_box{
+            background: #00ffff;
+            position: absolute;
+            top:50%;
+            left:50%;
+            z-index: 5;
+         }
+    </style>
 </head>
 <body>
+<!--
 <div class="clearFloat">
     <ul id="totle"  >
         <li>
@@ -125,10 +148,38 @@ ddd
 <br/>
 <br/>
 <span id="d9" onclick="abc()">222</span>
+ -->
+<div class="box">
+    <div id="container">
+        <div id="rd_box"></div>
+    </div>
+</div>
+
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/mxjfunction.js"></script>
 <script>
-    function abc(){
+
+    var width=parseInt(window.getComputedStyle(document.getElementById("container")).width);
+    var height=parseInt(window.getComputedStyle(document.getElementById("container")).height);
+    var tan=width/height;
+    console.log(width,height,tan);
+    //宽取到1920-500；
+    //高取到1080-500
+    var rd_width=10*parseInt(Math.random()*(153-50)+50);
+    var rd_height=10*parseInt(Math.random()*(90-50)+50);
+    var tan2=rd_width/rd_height;
+    console.log(rd_width,rd_height,tan2);
+    if(tan2<=tan){// 高占全屏
+        rd_height=height;
+        rd_width=tan2*rd_height;
+    }else{
+        rd_width=width;
+        rd_height=rd_width/tan2;
+    }
+    $("#rd_box").css({"width":rd_width,"height":rd_height,"marginTop":-rd_height/2,"marginLeft":-rd_width/2});
+</script>
+<script>
+  /*  function abc(){
         console.log(222);
     }
     $(".fasel").click(function(){
@@ -158,9 +209,9 @@ $("#cc_bt").click(function(){
     $(".rd").css({"background":rdcolor.rd_color(20,200)});
     rdcolor.create_div(3);
 });
-
-
+*/
 </script>
+
 
 
 </body>
